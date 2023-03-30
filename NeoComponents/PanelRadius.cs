@@ -24,12 +24,37 @@ namespace NeoComponents
         }
 
         // Propiedades
-        public int BorderRadius { get => borderRadius; set => borderRadius=value; }
-        public int GradientAngle { get => gradientAngle; set => gradientAngle=value; }
-        public Color GradientTopColor { get => gradientTopColor; set => gradientTopColor=value; }
-        public Color GradientBottomColor { get => gradientBottomColor; set => gradientBottomColor=value; }
+        public int BorderRadius { 
+            get => borderRadius;
+            set { 
+                borderRadius=value;
+                this.Invalidate();
+            }
+        }
+        public int GradientAngle {
+            get => gradientAngle;
+            set { 
+                gradientAngle=value;
+                this.Invalidate();
+            } 
+        }
+        public Color GradientTopColor { 
+            get => gradientTopColor;
+            set { 
+                gradientTopColor=value;
+                this.Invalidate();
+            }
+        }
+        public Color GradientBottomColor
+        {
+            get => gradientBottomColor;
+            set { 
+                gradientBottomColor=value;
+                this.Invalidate();
+            }
+        }
 
-
+        // Metodos
 
     }
 }
