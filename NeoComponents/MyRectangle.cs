@@ -30,8 +30,22 @@ namespace NeoComponents
             }
             else 
             {
-                
+                graphicsPath.AddArc(new RectangleF(x, y, 2f * radius, 2f * radius), 180f, 90f );
+                graphicsPath.AddArc(new RectangleF(width - (2f * radius) - 1f, x, 2f * radius, 2f * radius), 270f, 90f);
+                graphicsPath.AddArc(new RectangleF(width - (2f * radius) - 1f, height - (2f * radius) - 1f, 2f * radius, 2f * radius), 0f, 90f);
+                graphicsPath.AddArc(new RectangleF(x, height - (2f * radius) - 1f, 2f * radius, 2f * radius), 90f, 90f);
+                graphicsPath.CloseAllFigures();
             }
+        }
+
+        public GraphicsPath path => graphicsPath;
+        public RectangleF Rect => new RectangleF(x, y, width, height);
+        public float Radius
+        {
+
+            get => Radius;
+            set => Radius = value;
+
         }
     }
 }
