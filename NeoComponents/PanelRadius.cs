@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace NeoComponents
 {
@@ -55,6 +56,22 @@ namespace NeoComponents
         }
 
         // Metodos
+        private GraphicsPath GetNeoPath(RectangleF rectangle, float radius) 
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(rectangle.Width - radius, rectangle.Height - radius, radius, radius, 0, 90);
+            path.AddArc(rectangle.X, rectangle.Height - radius, radius, radius, 90, 90);
+            path.AddArc(rectangle.X, rectangle.Y, radius, radius, 180, 90);
+            path.AddArc(rectangle.Width - radius, rectangle.Y, radius, radius, 270, 90);
+            path.CloseFigure();
+
+            return path;
+
+        }
+
+        // Metodos overriden
+        protected 
 
     }
 }
