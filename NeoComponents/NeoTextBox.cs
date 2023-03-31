@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -139,6 +140,34 @@ namespace NeoComponents
                 }
                 Invalidate();
             }
+        }
+
+        // Metodos
+        protected override void OnFontChanged(EventArgs e)
+        {
+            base.OnFontChanged(e);
+            textBox.Font = Font;
+            base.Invalidate();
+        }
+
+        protected override void OnForeColorChanged(EventArgs e)
+        {
+            base.OnForeColorChanged(e);
+            textBox.ForeColor = mColor = ForeColor;
+            base.Invalidate();
+        }
+
+        protected override void OnTextChanged(EventArgs e)
+        {
+            base.OnTextChanged(e);
+            textBox.Text = Text;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            shape = new MyRectangle();
+            base.OnPaint(e);
+
         }
     }
 }
