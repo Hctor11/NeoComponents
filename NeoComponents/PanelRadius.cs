@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms.VisualStyles;
 
 namespace NeoComponents
 {
@@ -71,7 +73,40 @@ namespace NeoComponents
         }
 
         // Metodos overriden
-        protected 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Gradiente
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            LinearGradientBrush NeoBrush = new LinearGradientBrush(
+                this.ClientRectangle,
+                this.GradientTopColor,
+                this.gradientBottomColor,
+                this.gradientAngle);
+
+            Graphics NeoGraphics = e.Graphics;
+            NeoGraphics.FillRectangle(NeoBrush, ClientRectangle);
+
+            // Panel Radius
+            RectangleF rectangleF = new RectangleF(0, 0, this.Width, this.Height);
+
+            if (borderRadius > 2)
+            {
+                using (GraphicsPath graphicsPath = GetNeoPath(rectangleF, borderRadius))
+                using (Pen pen = new Pen(this.Parent.BackColor, 2))
+                {
+
+                    this.Region = new Region(graphicsPath);
+                    e.Graphics.DrawPath(pen, graphicsPath);
+
+                }
+            }
+            else
+            {
+                this.Region = new Region(rectangleF);
+            }
+        }
 
     }
 }
