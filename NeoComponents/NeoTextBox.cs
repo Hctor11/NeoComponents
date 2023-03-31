@@ -165,7 +165,8 @@ namespace NeoComponents
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            shape = new MyRectangle();
+            shape = new MyRectangle((float)base.Width, (float)base.Height, (float)radius/2, 0f, 0f).path;
+            //innerRectangle = new MyRectangle(base.Width - 0.5f,)
             base.OnPaint(e);
 
         }

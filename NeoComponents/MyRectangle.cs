@@ -14,15 +14,13 @@ namespace NeoComponents
         private Point location;
         private GraphicsPath graphicsPath;
 
-        public MyRectangle(float x, float y, float width, float height, float radius, Point location, GraphicsPath graphicsPath)
+        public MyRectangle(float width, float height, float radius, float x = 0F, float y = 0F)
         {
             this.x=x;
             this.y=y;
             this.width=width;
             this.height=height;
             this.radius=radius;
-            this.location=location;
-            this.graphicsPath=graphicsPath;
 
             if (radius <= 0f)
             {
