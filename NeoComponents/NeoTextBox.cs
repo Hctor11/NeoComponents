@@ -37,6 +37,7 @@ namespace NeoComponents
             textBox.BackColor = backColor;
             BackColor = Color.Transparent;
 
+
         }
     }
 }
