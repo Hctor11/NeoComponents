@@ -166,7 +166,21 @@ namespace NeoComponents
         protected override void OnPaint(PaintEventArgs e)
         {
             shape = new MyRectangle((float)base.Width, (float)base.Height, (float)radius/2, 0f, 0f).path;
-            //innerRectangle = new MyRectangle(base.Width - 0.5f,)
+            innerRectangle = new MyRectangle(base.Width - 0.5f, base.Height-0.5f, (float)radius/2, 0.5f, 0.5f).path;
+            Pen pen = new Pen(BorderColor, BorderSize);
+
+            if (textBox.Height >= (base.Height - 4))
+                base.Height = textBox.Height + 4;
+
+            textBox.Location = new Point(Radius - 5, (base.Height/2)-(textBox.Font.Height/2));
+            textBox.Width = base.Width - ((int)(radius*1.5));
+            e.Graphics.SmoothingMode = (SmoothingMode.HighQuality);
+            e.Graphics.DrawPath(pen, shape);
+
+            using (SolidBrush brush = new SolidBrush(backColor)) 
+            { 
+            }
+
             base.OnPaint(e);
 
         }

@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyRectangle.cs" />
+    <Compile Include="NeoTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PanelRadius.cs">
       <SubType>Component</SubType>
     </Compile>
