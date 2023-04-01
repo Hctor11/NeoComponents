@@ -40,6 +40,64 @@ namespace NeoComponents
             backColor = Color.White;
             Font = new Font("Century Gothic", 12F);
             DoubleBuffered = true;
+
+            textBox.KeyDown += new KeyEventHandler(textBox_keyDown);
+            textBox.TextChanged += new EventHandler(textBox_textChanged);
+            textBox.MouseDoubleClick += new MouseEventHandler(textBox_MouseDoubleClick);
+            textBox.MouseClick += new MouseEventHandler(textBox_MouseClick);
+            textBox.Leave += new EventHandler(textBox_Leave);
+            textBox.KeyPress += new KeyPressEventHandler(textBox_KeyPress);
+
+
+        }
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            base.OnKeyPress(e);
+        }
+
+        private void textBox_Leave(object sender, EventArgs e)
+        {
+            if (Text == placeholder || Text == string.Empty)
+            {
+                Text = placeholder;
+                textBox.ForeColor = placeholderColor;
+            }
+            else
+            {
+                textBox.ForeColor = mColor;
+            }
+        }
+
+        private void textBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (Text == placeholder || Text == string.Empty)
+            {
+                Text = string.Empty;
+                textBox.ForeColor = mColor;
+            }
+        }
+
+        private void textBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                textBox.SelectAll();
+            }
+        }
+
+        private void textBox_textChanged(object sender, EventArgs e)
+        {
+            Text = textBox.Text;
+        }
+
+        private void textBox_keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.A))
+            {
+                textBox.SelectionStart = 0;
+                textBox.SelectionLength = Text.Length;
+            }
         }
 
         // Propiedades
