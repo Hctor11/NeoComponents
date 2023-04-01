@@ -179,7 +179,10 @@ namespace NeoComponents
 
             using (SolidBrush brush = new SolidBrush(backColor)) 
             { 
+                e.Graphics.FillPath((Brush)brush, innerRectangle);
             }
+
+            NeoTranslate.MakeTransparent(this, e.Graphics);
 
             base.OnPaint(e);
 
