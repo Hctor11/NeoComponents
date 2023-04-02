@@ -21,6 +21,8 @@ namespace NeoComponents
             this.width=width;
             this.height=height;
             this.radius=radius;
+            this.location = new Point(0, 0);
+            graphicsPath = new GraphicsPath();
 
             if (radius <= 0f)
             {

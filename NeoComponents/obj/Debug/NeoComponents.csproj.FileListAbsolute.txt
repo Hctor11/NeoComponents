@@ -1,0 +1,6 @@
+C:\Users\hector\source\repos\NeoComponents\NeoComponents\bin\Debug\NeoComponents.dll
+C:\Users\hector\source\repos\NeoComponents\NeoComponents\bin\Debug\NeoComponents.pdb
+C:\Users\hector\source\repos\NeoComponents\NeoComponents\obj\Debug\NeoComponents.csproj.AssemblyReference.cache
+C:\Users\hector\source\repos\NeoComponents\NeoComponents\obj\Debug\NeoComponents.csproj.CoreCompileInputs.cache
+C:\Users\hector\source\repos\NeoComponents\NeoComponents\obj\Debug\NeoComponents.dll
+C:\Users\hector\source\repos\NeoComponents\NeoComponents\obj\Debug\NeoComponents.pdb
