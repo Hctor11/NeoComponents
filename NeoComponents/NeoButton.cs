@@ -61,7 +61,11 @@ namespace NeoComponents
             FlatStyle = FlatStyle.Flat;
             BackColor = Color.MediumSlateBlue;
             ForeColor = Color.White;
+
+            Resize += new EventHandler(button_Resize);
         }
+
+        
 
         // Metodos
 
@@ -130,6 +134,13 @@ namespace NeoComponents
             if (DesignMode)
             {
                 Invalidate();
+            }
+        }
+        private void button_Resize(object sender, EventArgs e)
+        {
+            if (borderRadius > Height)
+            {
+                borderRadius = Height;
             }
         }
     }
